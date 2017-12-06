@@ -6,7 +6,7 @@ export class GuiModel {
     */
     private _guiModel = {
         "application": {
-            "title": "Jennifer's Friend Tracker",
+            "title": "Efficiency Consulting AG Friend Tracker",
             "formList": [
                 {
                     "id": "FriendForm",
@@ -32,7 +32,7 @@ export class GuiModel {
                             "name": "Nickname",
                             "width": 2,
                             "required": true
-},
+						},
                         {
                             "id": "group",
                             "type": "autocomplete",
@@ -74,8 +74,7 @@ export class GuiModel {
                         {
                             "type": "okButton",
                             "name": "Ok"
-                        },
-                                                                                  
+                        },                                                                 
                     ]
                 },
                 {
@@ -89,6 +88,14 @@ export class GuiModel {
                             "width": 2,
                             "required": true
                         },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        }, 
                         {
                             "type": "deleteButton",
                             "name": "Delete"
@@ -104,16 +111,40 @@ export class GuiModel {
                     ]
                 }, 
 					{
-                    "id": "ActivityForm",
+                    "id": "friendpage",
                     "title": "Activity",
                     "formFieldList": [
                         {
                             "id": "name",
-                            "type": "text",
-                            "name": "Activity name",
+                            "type": "autocomplete",
+                            "name": "Activity",
+                            "data": [ "Movie with him", "Eating Pizza", "Running Eschenberg" ],
+                            "form": "friendpage",
                             "width": 2,
                             "required": true
+                        },   
+                        {
+                            "id": "Date",
+                            "type": "date",
+                            "name": "Date",
+                            "width": 2
                         },
+                        {
+                            "id":   "location",
+                            "type": "autocomplete",
+                            "name": "Location",
+                            "data": [ "Winterthur", "Zürich" ],
+                            "form": "GroupForm",
+                            "width": 2
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },          
                         {
                             "type": "deleteButton",
                             "name": "Delete"
@@ -139,20 +170,34 @@ export class GuiModel {
                             "width": 2,
                             "required": true,
                             },
+                            {
+                            "id": "Creation",
+                            "type": "date",
+                            "name": "Creation Date",
+                            "width": 2
+                        },
+                        {
+                            "id": "comment",
+                            "type": "text",
+                            "name": "Comments",
+                            "width": 2,
+                            "height": 4,
+                            "maxLength": 5000,
+                        },
                           {
                             "type": "deleteButton",
                             "name": "Delete"
-                                                                                   },
+                            },
 						{
                             "type": "cancelButton",
                             "name": "Cancel"
                                   },
                      {
-                                     "type": "okButton",
-                                    "name": "Ok"
+                            "type": "okButton",
+                            "name": "Ok"
                  }
-                                                                     ]
-                                                       }
+               ]
+    		 }
             ],
             "pageList": [
                 {
@@ -163,60 +208,53 @@ export class GuiModel {
                             "type": "button",
                             "name": "Friends",
                             "icon": "fa-user",
-                            "color": "green",
+                            "color": "blue",
                             "page": "friendspage",
-                        },
-{
-                            "type": "button",
-                            "name": "Activity",
-                            "icon": "fa-user",
-                            "color": "lime",
-                            "page": "activitypage",
                         },
                         {
                             "type": "button",
                             "name": "Location",
                             "icon": "fa-cubes",
-                            "color": "teal",
+                            "color": "yellow",
                             "page": "locationspage",
                         },
-                                                                                   {
-                                                                                                "type": "button",
-                                                                                                "name": "Groups",
-                                                                                                "icon": "fa-gavel",
-                                                                                                "color": "lime",
-                                                                                                "page": "groupspage",
-                                                                                   },
+                     {
+                            "type": "button",
+                            "name": "Groups",
+                            "icon": "fa-weixin",
+                            "color": "wisteria",
+                            "page": "groupspage",
+                         },
                     ]
                 },
-                                                       {
-                                                                     "id": "groupspage",
-                                                                     "elementList": [
-                                                                                   {
-                                                                                                "type": "backbutton",
-                                                                                   },
-                                                                                   {
-                                                                                                "type": "newButton",
-                                                                                                "name": "NewGroup",
-                                                                                                "icon": "fa-fort-awesome",
-                                                                                                "color": "teal",
-                                                                                                "form": {
-                                                                                                              "form": "GroupForm"
-                                                                                                }
-                                                                                   },
+                         {
+                            "id": "groupspage",
+                            "elementList": [
+                         {
+                        	"type": "backbutton",
+                         },
+                        {
+                         	"type": "newButton",
+                            "name": "NewGroup",
+                            "icon": "fa-weixin",
+                            "color": "green",
+                            "form": {
+                            "form": "GroupForm"
+                          }
+                    	 },
                                                                                                                                                                                                                                                                                                       
-                                                                                   {
-                                                                                                "type": "list",
-                                                                                                "icon": "fa-asterisk",
-                                                                                                "color": "alizarin",
-                                                                                                "search": true,
-                                                                                                "data": [ {name: "Study"}, {name: "Family"}, {name: "School"}],
-                                                                                                "form": {
-                                                                                                              "form": "GroupForm"
-                                                                                                }
-                                                                                   },
-                                                                     ]
-                                                       },
+                        {
+                            "type": "list",
+                            "icon": "fa-weixin",
+                            "color": "wisteria",
+                            "search": true,
+                            "data": [ {name: "Study"}, {name: "Family"}, {name: "School"}],
+                            "form": {
+                            "form": "GroupForm"
+                         }
+                       },
+                    ]
+                },
                 {
                     "id": "friendspage",
                     "elementList": [
@@ -258,40 +296,22 @@ export class GuiModel {
                             }
                         },
                         {
-                            "type": "list",
-                            "icon": "fa-user",
-                            "color": "lime",
-                            "search": true,
-                            "data": [ { name: "Schwimmen" }, { name: "Joggen"} ],
-                            "form": {
-                                "form": "FriendForm"
-                            }
-                        },
-                    ]
-                },
-{
-                    "id": "activitypage",
-                    "elementList": [
-                        {
-                            "type": "backbutton",
-                        },
-                        {
                             "type": "newButton",
-                            "name": "NewActivity",
+                            "name": "AddActivity",
                             "icon": "fa-user",
-                            "color": "teal",
+                            "color": "green",
                             "form": {
-                                "form": "ActivityForm"
+                                "form": "friendpage"
                             }
                         },
                         {
                             "type": "list",
                             "icon": "fa-user",
-                            "color": "lime",
+                            "color": "orange",
                             "search": true,
-                            "data": [ { name: "Schwimmen" }, { name: "Kino"} ],
+                            "data": [ { name: "Movie with him" }, { name: "Eating Pizza"} , { name: "Running Eschenberg"} ],
                             "form": {
-                                "form": "ActivityForm"
+                                "form": ""
                             }
                         },
                     ]
