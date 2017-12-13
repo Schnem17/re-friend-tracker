@@ -138,6 +138,14 @@ export class GuiModel {
                             "width": 2
                         },
                         {
+                            "id":   "personen",
+                            "type": "autocomplete",
+                            "name": "Personen",
+                            "data": [ "Anton Amacker", "Britta Beavers" ],
+                            "form": "GroupForm",
+                            "width": 2
+                        },
+                        {
                             "id": "comment",
                             "type": "text",
                             "name": "Comments",
@@ -276,10 +284,10 @@ export class GuiModel {
                             "color": "lime",
                             "search": true,
                             "data": [ { name: "Anton Amacker" }, { name: "Britta Beavers"} ],       
-                                "page": "friendpage"  
+                                "page": "friendpage"                                  
                         },
                     ]
-                },
+                }, 
                         {
                     "id": "friendpage",
                     "elementList": [
@@ -311,7 +319,7 @@ export class GuiModel {
                             "search": true,
                             "data": [ { name: "Movie with him" }, { name: "Eating Pizza"} , { name: "Running Eschenberg"} ],
                             "form": {
-                                "form": ""
+                                "form": "friendpage"
                             }
                         },
                     ]
